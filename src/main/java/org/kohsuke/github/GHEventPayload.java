@@ -1725,4 +1725,8 @@ public abstract class GHEventPayload extends GitHubInteractiveObject {
             return changes;
         }
     }
+
+    public static class Sponsorship extends GHEventPayload {
+
+    }
 }
