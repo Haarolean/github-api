@@ -6,9 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Minimal local copy of the WithBridgeMethods annotation to avoid the external dependency.
+ * Compatibility stub of the WithBridgeMethods annotation to avoid the external dependency.
+ * This annotation does not trigger bridge method generation.
  */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.METHOD)
 public @interface WithBridgeMethods {
     Class<?>[] value();
