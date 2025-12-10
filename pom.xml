@@ -152,11 +152,6 @@
       <version>${spotbugs.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.infradna.tool</groupId>
-      <artifactId>bridge-method-annotation</artifactId>
-      <version>1.31</version>
-    </dependency>
-    <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
       <version>${okhttp3.version}</version>
@@ -281,19 +276,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <build>
     <testResources>
       <testResource>
@@ -305,18 +287,6 @@
     </testResources>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <groupId>com.infradna.tool</groupId>
-          <artifactId>bridge-method-injector</artifactId>
-          <version>1.31</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>process</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
@@ -590,13 +560,6 @@
           <source>11</source>
           <target>11</target>
           <release>11</release>
-          <annotationProcessorPaths>
-            <annotationProcessorPath>
-              <groupId>org.jenkins-ci</groupId>
-              <artifactId>annotation-indexer</artifactId>
-              <version>1.18</version>
-            </annotationProcessorPath>
-          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>
@@ -834,10 +797,6 @@
       </properties>
       <build>
         <plugins>
-          <plugin>
-            <groupId>com.infradna.tool</groupId>
-            <artifactId>bridge-method-injector</artifactId>
-          </plugin>
           <plugin>
             <artifactId>maven-resources-plugin</artifactId>
             <executions>
