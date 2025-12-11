@@ -5,7 +5,6 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.util.Collections;
 import java.util.Map;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents the response part of a GitHub App webhook delivery.
  *
