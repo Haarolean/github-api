@@ -1,0 +1,39 @@
+[
+  {
+    "id": 123456789,
+    "guid": "123e4567-e89b-12d3-a456-426614174000",
+    "delivered_at": "2024-12-07T12:00:00Z",
+    "redelivery": false,
+    "duration": 0.22,
+    "status": "OK",
+    "status_code": 200,
+    "event": "issues",
+    "action": "opened",
+    "installation_id": 987654321,
+    "repository_id": 123456789,
+    "url": "https://api.github.com/app/hook/deliveries/123456789",
+    "request": {
+      "headers": {
+        "content-type": "application/json",
+        "x-github-hook-id": "1111"
+      },
+      "payload": {
+        "action": "opened",
+        "hook": {
+          "id": 1111,
+          "type": "App"
+        }
+      }
+    },
+    "response": {
+      "headers": {
+        "content-type": "application/json"
+      },
+      "payload": {
+        "status": "delivered"
+      },
+      "status": "OK",
+      "status_code": 200
+    }
+  }
+]

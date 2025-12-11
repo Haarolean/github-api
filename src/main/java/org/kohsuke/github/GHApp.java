@@ -259,4 +259,27 @@ public class GHApp extends GHObject {
         return requester.toIterable(GHAppInstallation[].class, null);
     }
 
+    /**
+     * Obtains the webhook deliveries for this GitHub App.
+     *
+     * @return the webhook deliveries
+     */
+    public PagedIterable<GHAppWebhookDelivery> listWebhookDeliveries() {
+        return root().createRequest()
+                .withUrlPath("/app/hook/deliveries")
+                .toIterable(GHAppWebhookDelivery[].class, item -> item.wrapUp(root()));
+    }
+
+    /**
+     * Requests a redelivery for a webhook delivery of this GitHub App.
+     *
+     * @param deliveryId
+     *            the webhook delivery id
+     * @throws IOException
+     *             if the request fails
+     */
+    public void redeliverWebhookDelivery(long deliveryId) throws IOException {
+        GHAppWebhookDelivery.redeliver(root(), deliveryId);
+    }
+
 }
