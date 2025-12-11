@@ -259,4 +259,36 @@ public class GHApp extends GHObject {
         return requester.toIterable(GHAppInstallation[].class, null);
     }
 
+    /**
+     * Get a specific delivery for the webhook configured for a GitHub App.
+     * <p>
+     * You must use a JWT to access this endpoint.
+     *
+     * @param deliveryId
+     *            the id of the delivery
+     * @return the delivery
+     * @throws IOException
+     *             on error
+     * @see <a href="https://docs.github.com/en/rest/apps/webhooks#get-a-delivery-for-an-app-webhook">Get a delivery for
+     *      an app webhook</a>
+     */
+    public GHAppHookDelivery getDelivery(long deliveryId) throws IOException {
+        return root().createRequest()
+                .withUrlPath(String.format("/app/hook/deliveries/%d", deliveryId))
+                .fetch(GHAppHookDelivery.class);
+    }
+
+    /**
+     * List deliveries for the webhook configured for a GitHub App.
+     * <p>
+     * You must use a JWT to access this endpoint.
+     *
+     * @return a list of deliveries
+     * @see <a href="https://docs.github.com/en/rest/apps/webhooks#list-deliveries-for-an-app-webhook">List deliveries
+     *      for an app webhook</a>
+     */
+    public PagedIterable<GHAppHookDelivery> listDeliveries() {
+        return root().createRequest().withUrlPath("/app/hook/deliveries").toIterable(GHAppHookDelivery[].class, null);
+    }
+
 }

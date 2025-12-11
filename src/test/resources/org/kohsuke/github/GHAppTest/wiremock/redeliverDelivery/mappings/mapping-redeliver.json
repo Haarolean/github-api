@@ -1,0 +1,22 @@
+{
+  "request": {
+    "url": "/app/hook/deliveries/12345678/attempts",
+    "method": "POST",
+    "headers": {
+      "Accept": {
+        "equalTo": "application/vnd.github+json"
+      }
+    }
+  },
+  "response": {
+    "status": 202,
+    "bodyFileName": "body-redeliver.json",
+    "headers": {
+      "Server": "GitHub.com",
+      "Date": "Fri, 09 Aug 2019 05:36:38 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Status": "202 Accepted",
+      "X-GitHub-Media-Type": "github.machine-man-preview; format=json"
+    }
+  }
+}
