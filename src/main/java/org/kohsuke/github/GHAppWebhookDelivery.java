@@ -40,10 +40,7 @@ public class GHAppWebhookDelivery extends GHObject {
      *             if the request fails
      */
     public void redeliver() throws IOException {
-        root().createRequest()
-                .method("POST")
-                .withUrlPath(String.format("/app/hook/deliveries/%d/attempts", getId()))
-                .send();
+        redeliver(root(), getId());
     }
 
     /**
@@ -161,6 +158,13 @@ public class GHAppWebhookDelivery extends GHObject {
     GHAppWebhookDelivery wrapUp(GitHub root) {
         this.root = root;
         return this;
+    }
+
+    static void redeliver(GitHub root, long deliveryId) throws IOException {
+        root.createRequest()
+                .method("POST")
+                .withUrlPath(String.format("/app/hook/deliveries/%d/attempts", deliveryId))
+                .send();
     }
 
     /**

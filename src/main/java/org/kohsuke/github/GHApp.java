@@ -279,10 +279,7 @@ public class GHApp extends GHObject {
      *             if the request fails
      */
     public void redeliverWebhookDelivery(long deliveryId) throws IOException {
-        root().createRequest()
-                .method("POST")
-                .withUrlPath(String.format("/app/hook/deliveries/%d/attempts", deliveryId))
-                .send();
+        GHAppWebhookDelivery.redeliver(root(), deliveryId);
     }
 
 }
