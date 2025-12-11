@@ -1,0 +1,28 @@
+{
+  "request": {
+    "url": "/app/hook/deliveries/12345678",
+    "method": "GET",
+    "headers": {
+      "Accept": {
+        "equalTo": "application/vnd.github+json"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "body-app-hook-delivery.json",
+    "headers": {
+      "Server": "GitHub.com",
+      "Date": "Fri, 09 Aug 2019 05:36:38 GMT",
+      "Content-Type": "application/json; charset=utf-8",
+      "Status": "200 OK",
+      "Cache-Control": "public, max-age=60, s-maxage=60",
+      "Vary": [
+        "Accept",
+        "Accept-Encoding"
+      ],
+      "ETag": "W/\"01163b1a237898d328ed56cd0e9aefca\"",
+      "X-GitHub-Media-Type": "github.machine-man-preview; format=json"
+    }
+  }
+}
