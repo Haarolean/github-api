@@ -1,0 +1,28 @@
+{
+  "id": "a6f1c3aa-4fb8-4a85-b4c6-0d2c915c7f2b",
+  "name": "app-hook-deliveries",
+  "request": {
+    "url": "/app/hook/deliveries",
+    "method": "GET",
+    "headers": {
+      "Accept": {
+        "equalTo": "application/vnd.github+json"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "1-app_hook_deliveries.json",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "public, max-age=60, s-maxage=60",
+      "Vary": [
+        "Accept",
+        "Accept-Encoding, Accept, X-Requested-With"
+      ]
+    }
+  },
+  "uuid": "a6f1c3aa-4fb8-4a85-b4c6-0d2c915c7f2b",
+  "persistent": true,
+  "insertionIndex": 1
+}

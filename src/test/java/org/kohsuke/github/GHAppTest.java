@@ -222,6 +222,38 @@ public class GHAppTest extends AbstractGHAppInstallationTest {
     }
 
     /**
+     * List webhook deliveries and trigger a redelivery.
+     *
+     * @throws IOException
+     *             Signals that an I/O exception has occurred.
+     */
+    @Test
+    public void listWebhookDeliveries() throws IOException {
+        GHApp app = gitHub.getApp();
+        List<GHAppWebhookDelivery> deliveries = app.listWebhookDeliveries().toList();
+
+        assertThat(deliveries, hasSize(1));
+
+        GHAppWebhookDelivery delivery = deliveries.get(0);
+        assertThat(delivery.getId(), is(123456789L));
+        assertThat(delivery.getGuid(), is("123e4567-e89b-12d3-a456-426614174000"));
+        assertThat(delivery.getDeliveredAt(), is(GitHubClient.parseInstant("2024-12-07T12:00:00Z")));
+        assertThat(delivery.isRedelivery(), is(false));
+        assertThat(delivery.getDuration(), is(closeTo(0.22D, 0.0001)));
+        assertThat(delivery.getStatus(), is("OK"));
+        assertThat(delivery.getStatusCode(), is(200));
+        assertThat(delivery.getEvent(), is(GHEvent.ISSUES));
+        assertThat(delivery.getAction(), is("opened"));
+        assertThat(delivery.getInstallationId(), is(987654321L));
+        assertThat(delivery.getRepositoryId(), is(123456789L));
+        assertThat(delivery.getRequest().getHeaders().get("content-type"), is("application/json"));
+        Map<?, ?> payload = (Map<?, ?>) delivery.getRequest().getPayload();
+        assertThat(payload.get("action"), is("opened"));
+
+        app.redeliverWebhookDelivery(delivery.getId());
+    }
+
+    /**
      * List installations.
      *
      * @throws IOException
